@@ -1,6 +1,9 @@
 <?php
 include 'connection.php';
 session_start();
+if(empty($_SESSION['email'])){
+    header('location:index.php?message=not_yet_login');
+}
 class Checkout
 {
     public $itemId;
@@ -45,7 +48,7 @@ $i = 0;
 
     <div class="container">
         <div class="box">
-            <form action="checkout.php" method="post" id="checkout">
+            <form action="checkout_process.php" method="post" id="checkout">
                 <table class="content-table">
                     <tbody>
                         <?php
@@ -67,7 +70,7 @@ $i = 0;
                                     <label for="ammount">x<?= $_SESSION['cart'][$i]->itemAmount ?></label>
                                 </td>
                                 <td>
-                                    <label for="price">Rp <?= $_SESSION['cart'][$i]->itemPrice ?></label>
+                                    <label for="price">IDR <?= $_SESSION['cart'][$i]->itemPrice ?></label>
                                 </td>
                             </tr>
                         <?php

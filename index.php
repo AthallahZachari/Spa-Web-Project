@@ -38,31 +38,30 @@
                     <input type="checkbox" name="Remember me" value="Remember me">
                     <label for="Remember me">Remember me</label>
                 </div>
-                <a href="#">Forgot Password</a>
             </div>
             <div class="enter">
                 <input class="login" type="submit" value="Login">
                 <label for="or">Or</label>
-                <P class="message">
-                    <?php
-                    if (isset($_GET['message'])) {
-                        if ($_GET['message'] == "failed") {
-                            echo "Login failed! Wrong username or password!";
-                        } else if ($_GET['message'] == "logout") {
-                            echo "Logout successfully!";
-                        } else if ($_GET['message'] == "not_yet_login") {
-                            echo "Not yet logged in!";
-                        } else if ($_GET['message'] == "regist_success") {
-                            echo "Registered successfully!";
-                        }
-                    }
-                    ?>
-                </P>
             </div>
         </form>
         <div class="field Button">
             <button class="button sign"><a href="reg_customer.php">Sign Up</a></button>
         </div>
+        <P class="message">
+            <?php
+            if (isset($_GET['message'])) {
+                if ($_GET['message'] == "failed") {
+                    echo "Login failed! Wrong username or password!";
+                } else if ($_GET['message'] == "logout") {
+                    echo "Logout successfully!";
+                } else if ($_GET['message'] == "not_yet_login") {
+                    echo "Not yet logged in!";
+                } else if ($_GET['message'] == "regist_success") {
+                    echo "Registered successfully!";
+                }
+            }
+            ?>
+        </P>
     </div>
 </body>
 <script src="index.js"></script>

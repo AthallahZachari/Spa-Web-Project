@@ -1,3 +1,23 @@
+<?php
+include 'connection.php';
+session_start();
+if (empty($_SESSION['email'])) {
+    header('location:index.php?message=not_yet_login');
+}
+$user_id = $_SESSION['id'];
+class Checkout
+{
+    public $itemId;
+    public $itemAmount;
+    public $itemName;
+    public $itemPrice = 0;
+    public $itemImage;
+}
+$total_price = 0;
+$date = date('Y-m-d');
+$user_object = mysqli_fetch_object(mysqli_query($connect, "SELECT * FROM user WHERE User_number=$user_id"));
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +26,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/invoice.css">
-    <title>Document</title>
+    <title>Checkout</title>
 </head>
 
 <body>
@@ -32,17 +52,28 @@
         <div class="box">
             <div class="header">
                 <p class="date">
-                    Order date : 17th Dec 2001
+                    Order date : <?= $date ?>
                 </p>
                 <p class="orderID">
-                    Order ID : #696969
+                    <?php
+                    if (isset($_GET['order_id'])) {
+                        $order_id = $_GET['order_id'];
+                    ?>Order ID : <?= $order_id ?>
+                <?php
+                    }
+                ?>
                 </p>
             </div>
             <div class="content">
-                <p class="username">Hello Username</p>
-                <h2 class="message"> Thank You for Ordering!</h2>
+                <p class="username">Hello, <?= $user_object->Fullname ?></p>
+                <h2 class="message">
+                    <?php
+                    if (isset($_GET['order_id'])) {
+                        echo "Thank You for Ordering";
+                    } ?>
+                </h2>
                 <!-- pesan sukses order-->
-                <p class="address">Kel. Pingit Kec. Pringsurat Kab. Temanggung</p>
+                <p class="address"><?= $user_object->Addr ?></p>
 
                 <div class="payment">
                     <label for="payment">Payment method </label>
@@ -58,38 +89,29 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>
-                                <div class="image">
-                                    <img src="" alt="">
-                                </div>
-                            </td>
-                            <td>
-                                <p>Kadarius Serum</p>
-                            </td>
-                            <td>
-                                <p>x3</p>
-                            </td>
-                            <td>
-                                <p>cepeklimpul</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="image">
-                                    <img src="" alt="">
-                                </div>
-                            </td>
-                            <td>
-                                <p>Kadarius Serum</p>
-                            </td>
-                            <td>
-                                <p>x3</p>
-                            </td>
-                            <td>
-                                <p>cepeklimpul</p>
-                            </td>
-                        </tr>
+                        <?php
+                        foreach ($_SESSION['checkout'] as $checkout_item) {
+                            $total_price += $checkout_item->itemPrice;
+                        ?>
+                            <tr>
+                                <td>
+                                    <div class="image">
+                                        <img src="uploads/<?= ($checkout_item->itemImage); ?>" alt="gmbr bg" />
+                                    </div>
+                                </td>
+                                <td>
+                                    <p><?= strtoupper($checkout_item->itemName) ?></p>
+                                </td>
+                                <td>
+                                    <p>x<?= $checkout_item->itemAmount ?></p>
+                                </td>
+                                <td>
+                                    <p>IDR <?= $checkout_item->itemPrice ?></p>
+                                </td>
+                            </tr>
+                        <?php
+                        }
+                        ?>
                     </tbody>
                     <tfoot>
                         <tr>
@@ -99,14 +121,22 @@
                             <td></td>
                             <td></td>
                             <td>
-                                <p>cepek ceng</p>
+                                <p><?= $total_price ?></p>
                             </td>
                         </tr>
                     </tfoot>
                 </table>
 
                 <div class="action">
-                    <a class="Buy" href="invoice.php"><button>Buy Now</button></a>
+                    <?php
+                    if (isset($_GET['order_id'])) {?>
+                        <a class="Buy" href="invoice_process.php"><button disabled="disabled">Order Placed</button></a>
+                        <?php
+                    } else {?>
+                        <a class="Buy" href="invoice_process.php"><button>Buy Now</button></a>
+                        <?php
+                    }?>
+                    
                 </div>
             </div>
         </div>

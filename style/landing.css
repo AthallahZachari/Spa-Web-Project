@@ -36,6 +36,7 @@ section{
 /*<------ NAVBAR ------>*/
 .page.first{
     background-image: url(../img/BG-second.jpg);
+    box-shadow: inset 0 0 0 1000px rgba(0,0,0,0.6);
     background-repeat:repeat;
     background-size: cover;
     display: flex;
@@ -66,23 +67,28 @@ section{
 .nav-container{
     height: 80px;
     width: 100%;
+    padding: 0px 30px;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     position: absolute;
     top: 0px;
 }
 .logo{
     cursor: pointer;
     transform: scale(1.5);
+    padding: 0px 20px;
     color: whitesmoke;
 }
 .navbar{
     width: 100%;
+    padding: 0px 10px;
     font-size: larger;
 }
 .navbar ul{
     display: flex;
+    align-items: center;
+    justify-content:space-between
 }
 .navbar ul li{
     list-style: none;
@@ -92,15 +98,20 @@ section{
 .navbar ul li:hover{
     opacity: 1;
 }
-.kanan i{
+.navbar ul button{
+    width: 100px;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1f1f1f;
+    color: whitesmoke;
     cursor: pointer;
-    color: lightgray;
-    padding: 0px 15px;
-    opacity: 0.6;
+    transition: all 0.2s ease;
 }
-.kanan i:hover{
-    opacity: 1;
+.navbar ul button:hover{
+    transform: scale(1.1);
 }
+
 
 /*<-------- Content -------->*/
 .content{
@@ -121,7 +132,6 @@ section{
     font-size: 3rem;
     font-weight: lighter;
     color: whitesmoke;
-    font-family: sans-serif;
 }
 .content p{
     font-family: 'Playfair Display', sans-serif;

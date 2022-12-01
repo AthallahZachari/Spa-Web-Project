@@ -1,6 +1,9 @@
 <?php
 include 'connection.php';
 session_start();
+if(empty($_SESSION['email'])){
+    header('location:index.php?message=not_yet_login');
+}
 $item_id = $_GET['id'];
 $item_join = mysqli_query($connect, "SELECT * FROM item INNER JOIN images ON images.id = item.image_id where item.item_id = $item_id");
 $category_join = mysqli_query($connect, "SELECT * FROM category INNER JOIN item ON item.category_code = category.ID_category");
@@ -28,25 +31,16 @@ $category_object = mysqli_fetch_object($category_join);
             <ul class="nav">
                 <li><a href="landing.php">Home</a></li>
                 <li><a href="shop_satu.php">Shop</a></li>
-                <li><a href="#">Treatment</a></li>
-                <li><a href="#">Promo</a></li>
-                <li><a href="#">Testimonials</a></li>
+                <li><a href="#">Setting</a></li>
+                <a class="log" href="logout.php"><button>Logout</button></a>
             </ul>
         </div>
-        <div class="nav-left">
-            <i class="fa fa-light fa-magnifying-glass"></i>
-            <i class="fa fa-light fa-bag-shopping"></i>
-            <i class="fa fa-thin fa-bars"></i>
-        </div>
     </div>
+
     <div class="legend">
-        <p>Showing result 1 - 9</p>
-        <p class="sort">Sort by Popular</p>
-        <div class="search">
-            <input class="sLegend" type="text" name="search" placeholder="Search...">
-            <button href="#">Go</button>
-        </div>
+        <p>Shop 2</p>
     </div>
+
     <div class="container">
         <div class="display info">
             <div class="pict">
@@ -64,10 +58,10 @@ $category_object = mysqli_fetch_object($category_join);
                             <span class="num">1</span>
                             <span class="plus">+</span>-->
                             <form action="cart_process.php?itemId=<?=$item_id?>" method="post" id="cart">
-                                <input type="number" value="1" name="count" min="1" max="9">
+                                <input class="count" type="number" value="1" name="count" min="1" max="9">
                             </form>
                         </div>
-                        <input type="submit" type="button" class="add" value="Add to Cart" form="cart">
+                        <input class="add" type="submit" type="button" class="add" value="Add to Cart" form="cart">
                         <!--<a href=""><button class="add">Add to Cart</button></a>-->
                         <a href=""><button class="order">Order Now</button></a>
                     </div>
@@ -82,6 +76,37 @@ $category_object = mysqli_fetch_object($category_join);
                     <p class="etc-text"><?=$item_object->item_info?>
                     </p>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="logo">
+            <h2>Soudemy</h2>
+        </div>
+        <div class="lists">
+            <div class="list about">
+                <h3>About Us</h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis dolorem tenetur, ex nisi dolorum
+                    consequuntur ad
+                </p>
+            </div>
+            <div class="list useful">
+                <h3>Useful</h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis dolorem tenetur, ex nisi dolorum
+                    consequuntur ad
+                </p>
+            </div>
+            <div class="list download">
+                <h3>Download</h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis dolorem tenetur, ex nisi dolorum
+                    consequuntur ad
+                </p>
+            </div>
+            <div class="list call">
+                <h3>Call Center</h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis dolorem tenetur, ex nisi dolorum
+                    consequuntur ad
+                </p>
             </div>
         </div>
     </div>

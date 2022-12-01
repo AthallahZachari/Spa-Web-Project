@@ -1,6 +1,9 @@
 <?php
 include 'connection.php';
 session_start();
+if(empty($_SESSION['email'])){
+    header('location:index.php?message=not_yet_login');
+}
 
 $id = $_POST['id'];
 $name = $_POST['name'];

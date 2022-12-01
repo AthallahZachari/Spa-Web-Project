@@ -1,6 +1,9 @@
 <?php
 include 'connection.php';
 session_start();
+if (empty($_SESSION['email'])) {
+    header('location:index.php?message=not_yet_login');
+}
 if (isset($_GET['category'])) {
     $id = $_GET['category'];
     $query = "SELECT * FROM item where category_code = $id ORDER BY category_code ASC";
@@ -32,8 +35,8 @@ $query_result = mysqli_query($connect, $query);
             <ul class="nav">
                 <li><a href="landing.php">Home</a></li>
                 <li><a href="shop_satu.php">Shop</a></li>
-                <li><a href="cart.php">Cart</a></li>
-                <li><a href="logout.php"><button>Logout</button></a></li>
+                <li><a href="#">Setting</a></li>
+                <a class="log" href="logout.php"><button>Logout</button></a>
             </ul>
         </div>
     </div>
@@ -60,7 +63,7 @@ $query_result = mysqli_query($connect, $query);
                         <div class="caption">
                             <p class="name"><?php echo $row->item_name; ?></p>
                             <p class="price"><?php echo "Rp " . $row->item_price; ?></p>
-                            <a href="shop_dua.php?id=<?= $row->item_id ?>"><button type="submit">Details</button></a>
+                            <a class="detail" href="shop_dua.php?id=<?= $row->item_id ?>"><button type="submit">Details</button></a>
                         </div>
                         <!--produk disini-->
                     </div>

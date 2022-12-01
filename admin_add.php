@@ -1,5 +1,9 @@
 <?php
 include 'connection.php';
+session_start();
+if(empty($_SESSION['email'])){
+    header('location:index.php?message=not_yet_login');
+}
 $query = mysqli_query($connect, "SELECT * FROM category");
 
 ?>
@@ -29,7 +33,7 @@ $query = mysqli_query($connect, "SELECT * FROM category");
                                    <a href="#">Setting</a>
                             </div>
                             <div class="menu-list">
-                                   <a href="#">Logout</a>
+                                   <a href="logout.php">Logout</a>
                             </div>
                      </div>
 

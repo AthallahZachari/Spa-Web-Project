@@ -1,6 +1,9 @@
 <?php
-include "connection.php";
+include 'connection.php';
 session_start();
+if(empty($_SESSION['email'])){
+    header('location:index.php?message=not_yet_login');
+}
 if (isset($_GET['category'])) {
     $id = $_GET['category'];
     $query = "SELECT * FROM item where category_code = $id ORDER BY category_code ASC";
@@ -29,9 +32,9 @@ $query_result = mysqli_query($connect, $query);
         <div class="nav">
             <li><a class="setting" href="admin.php">Home</a></li>
             <li><a class="setting" href="#">Setting</a></li>
-            <li><a  class="add" href="admin_add.php"><span>Add +</span></a></li>
+            <li><a class="add" href="admin_add.php"><span>Add +</span></a></li>
             <li>
-                <form action="" method="POST"><input type="submit" value=" Logout"></form>
+                <form action="logout.php" method="POST"><input type="submit" value=" Logout"></form>
             </li>
         </div>
     </div>
@@ -45,18 +48,17 @@ $query_result = mysqli_query($connect, $query);
             <div class="logo-category">
                 <h1>Category</h1>
             </div>
-            <div class="list-category">
-                <p>Category</p>
-            </div>
-            <div class="list-category">
-                <p>Category</p>
-            </div>
-            <div class="list-category">
-                <p>Category</p>
-            </div>
-            <div class="list-category">
-                <p>Category</p>
-            </div>
+            <?php
+            while ($row = mysqli_fetch_object($category_list)) {
+            ?>
+                <div class="list-category">
+                    <a style="text-decoration: none" href="admin_main.php?category=<?= $row->ID_category ?>">
+                        <p><?= $row->category_name ?></p>
+                    </a>
+                </div>
+            <?php
+            }
+            ?>
         </div>
         <div class="product">
             <div class="cards">
@@ -71,14 +73,13 @@ $query_result = mysqli_query($connect, $query);
                             <img src="uploads/<?= $image->image_url ?>" alt="">
                         </div>
                         <div class="desc">
-                            <p class="title"><?php echo $row["name"] ?></p>
-                            <p class="price">Rp <?php echo $row["unit_price"] ?></p>
-                            <p class="stock">stock : <?php echo $row["quantity_in_stock"] ?></p>
-                            <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta tempora</p>
+                            <p class="title"><?= $row->item_name ?></p>
+                            <p class="price">IDR <?= $row->item_price ?></p>
+                            <p class="text"><?= $row->item_desc ?></p>
                         </div>
-                        <form class="action" action="" method="POST">
-                            <input class="edit" type="submit" value="Edit">
-                            <input class="delete" type="submit" value="Delete">
+                        <form class="action">
+                            <a href="admin_edit.php?id=<?= $row->item_id ?>"><input class="edit" type="submit" value="Edit" form="edit"></a>
+                            <a href="admin_delete.php?id=<?= $row->item_id ?>"><input class="delete" type="submit" value="Delete" form="delete"></a>
                         </form>
                     </div>
                 <?php

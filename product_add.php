@@ -1,6 +1,9 @@
 <?php
 include 'connection.php';
 session_start();
+if(empty($_SESSION['email'])){
+    header('location:index.php?message=not_yet_login');
+}
 
 $name = $_POST['name'];
 $category = $_POST['category'];

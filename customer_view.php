@@ -1,5 +1,10 @@
 <?php
     include 'connection.php';
+    session_start();
+    if(empty($_SESSION['email'])){
+        header('location:index.php?message=not_yet_login');
+    }
+    $data = (mysqli_query($connect, "SELECT * FROM user WHERE types='user'"));
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +14,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/customer_view.css">
-    <title>Document</title>
+    <title>Customer List</title>
 </head>
 
 <body>
@@ -26,7 +31,7 @@
                     <a href="#">Setting</a>
                 </div>
                 <div class="menu-list">
-                    <a href="#">Logout</a>
+                    <a href="logout.php">Logout</a>
                 </div>
             </div>
         </div>
@@ -36,20 +41,20 @@
                     <thead>
                         <tr>
                             <th>Name</th>
+                            <th>Email</th>
                             <th>Address</th>
-                            <th>Shopping Point</th>
+                            <th>Phone Number</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                        $query = "SELECT * FROM customers";
-                        $data = $connect->query($query);
-                        while ($row = mysqli_fetch_assoc($data)) {
+                        while ($row = mysqli_fetch_object($data)) {
                         ?>
                             <tr>
-                                <td><?php echo $row["first_name"] ?></td>
-                                <td><?php echo $row["address"] ?></td>
-                                <td><?php echo $row["points"] ?></td>
+                                <td><?=$row->Fullname?></td>
+                                <td><?=$row->email?></td>
+                                <td><?=$row->Addr ?></td>
+                                <td><?=$row->phone_numb ?></td>
                             </tr>
                         <?php
                         }

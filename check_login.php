@@ -13,6 +13,7 @@ if ($check > 0) {
     $_SESSION['email'] = $email;
     $_SESSION['status'] = "login";
     $_SESSION['cart'] = array();
+    $_SESSION['id'] = $type->User_number;
     if ($type->types=='user') {
         header("Location:landing.php");
     } 

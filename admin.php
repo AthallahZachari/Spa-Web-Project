@@ -1,3 +1,15 @@
+<?php
+include 'connection.php';
+session_start();
+if(empty($_SESSION['email'])){
+    header('location:index.php?message=not_yet_login');
+}
+$order_num=mysqli_num_rows(mysqli_query($connect, "SELECT * FROM trans"));
+$revenue_total = (mysqli_fetch_object(mysqli_query($connect, "SELECT sum(total_price) as revenue from trans")))->revenue;
+$cust_total = mysqli_num_rows(mysqli_query($connect, "SELECT * FROM user WHERE types='user'"));
+$item_total = mysqli_num_rows(mysqli_query($connect, "SELECT * FROM item"));
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,7 +42,7 @@
                     </a>
                 </div>
                 <div class="menu-list">
-                    <a href="#">
+                    <a href="logout.php">
                         <i></i>
                         <span class="text">Logout</span>
                     </a>
@@ -42,27 +54,27 @@
         <div class="cards">
             <div class="card">
                 <i></i>
-                <h1 class="title">Order</h1>
-                <p class="counter">5.000</p>
-                <p class="text">Description</p>
+                <h1 class="title">Customers</h1>
+                <p class="counter"><?=$cust_total?></p>
+                <p class="text">have been registered</p>
+            </div>
+            <div class="card">
+                <i></i>
+                <h1 class="title">Orders</h1>
+                <p class="counter"><?=$order_num?></p>
+                <p class="text">have been placed</p>
+            </div>
+            <div class="card">
+                <i></i>
+                <h1 class="title">Products</h1>
+                <p class="counter"><?=$item_total?></p>
+                <p class="text">are ready for sale</p>
             </div>
             <div class="card">
                 <i></i>
                 <h1 class="title">Revenue</h1>
-                <p class="counter">5.000</p>
-                <p class="text">Description</p>
-            </div>
-            <div class="card">
-                <i></i>
-                <h1 class="title">Customers</h1>
-                <p class="counter">5.000</p>
-                <p class="text">Description</p>
-            </div>
-            <div class="card">
-                <i></i>
-                <h1 class="title">Customers</h1>
-                <p class="counter">5.000</p>
-                <p class="text">Description</p>
+                <p class="counter">IDR <?=$revenue_total;?></p>
+                <p class="text">has been earned</p>
             </div>
         </div>
         <div class="tables">
@@ -71,7 +83,7 @@
                     <h2>Products</h2>
                 </div>
                 <div class="icon">
-                    <img src="img/PRODUCT-7.png" alt="">
+                    <img src="img/PRODUCTS-FACE.jpg" alt="">
                 </div>
                 <div class="action">
                     <a href="admin_main.php">
@@ -84,7 +96,7 @@
                     <h2>Order</h2>
                 </div>
                 <div class="icon">
-                    <img src="img/PRODUCT-7.png" alt="">
+                    <img src="img/ORDER-FACE.jpg" alt="">
                 </div>
                 <div class="action">
                     <a class="customize" href="order.php">
@@ -97,7 +109,7 @@
                     <h2>Customers</h2>
                 </div>
                 <div class="icon">
-                    <img src="img/PRODUCT-7.png" alt="">
+                    <img src="img/CUST-FACE.jpg" alt="">
                 </div>
                 <div class="action">
                     <a class="customize" href="customer_view.php">
