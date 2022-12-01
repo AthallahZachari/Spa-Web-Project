@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amethysta&display=swap');
+
+* {
+    padding: 0px 0px;
+    margin: 0px 0px;
+    font-family: 'Amethysta';
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+}
+
+.top-bar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+}
+.top-bar .logo{
+    color: #1f1f1f;
+}
+.top-bar .navs .nav{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.top-bar .navs .nav li{
+    list-style: none;
+    margin: 0px 15px;
+}
+.top-bar .navs .nav li a{
+    text-decoration: none;
+    color: #1f1f1f;
+    opacity: 0.8;
+}
+.top-bar .navs .nav li a:hover{
+    opacity: 1;
+}
+.top-bar .navs .nav a .logout{
+    height: 40px;
+    width: 80px;
+    margin: 0px 15px;
+    border: none;
+    border-radius: 3px;
+    background-color: #2e2e2e;
+    color: whitesmoke;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+.top-bar .navs .nav a .logout:hover{
+    transform: scale(1.1);
+}
+
+/*
+<!======== Legend ========!>
+<!======== Legend ========!>
+*/
+.legend{
+    padding: 0px 40px;
+    margin-top: 30px;
+    height: 50px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.legend p{
+    color: gray;
+    font-size: small;
+}
+
+
+.container{
+    min-height: 100%;
+    padding: 30px 0px;
+}
+.container .box{
+    width: 90%;
+    min-height: 60vh;
+    padding: 10px 10px;
+    margin: auto;
+}
+
+/*
+<!======== INVOICE ========!>
+<!======== INVOICE ========!>
+*/
+.container .box .header{
+    width: 100%;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.container .box .header .date,
+.container .box .header .orderID{
+    color: lightgray;
+    font-size: 12px;
+}
+.container .box .content{
+    width: 100%;
+} 
+.container .box .content .username{
+    margin: 5px 0px;
+}
+.container .box .content .address{
+    margin-top: 20px;
+}
+.container .box .content .payment{
+    margin-top: 20px;
+}
+.container .box .content .payment label{
+    color: lightgray;
+}
+
+/*
+<!======== TABLE ========!>
+<!======== TABLE ========!>
+*/
+.content-table{
+    margin-top: 20px;
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+}
+
+.content-table td{
+    padding: 10px 10px;
+}
+.content-table td .image{
+    background-color: thistle;
+    height: 200px;
+    width: 200px;
+}
+
+.content-table tbody tr:first-of-type{
+    border-top: 2px solid #2e2e2e;
+}
+.content-table tbody tr:last-of-type{
+    border-bottom: 2px solid #292929;
+}
+.content-table tbody tr:nth-last-of-type(even){
+    background-color: whitesmoke;
+}
+
+.content-table tfoot tr{
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+.content .action{
+    width: 100%;
+    margin-top: 30px;
+    padding: 10px 120px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.content .action a button{
+    height: 60px;
+    width: 120px;
+    background-color: #2e2e2e;
+    color: whitesmoke;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.content .action a button:hover{
+    background-color: #91F086;
+    border: 1px solid #11823B;
+}
+
+/*
+<!======== Footer ========!>
+<!======== Footer ========!>
+*/
+.footer{
+    background-color: #1f1f1f;
+    height: 45vh;
+    margin-top: 50px;
+}
+.footer .logo{
+    padding: 20px 50px;
+}
+.footer .logo h2{
+    color: lightgray;
+}
+.footer .lists{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.footer .lists .list{
+    margin: 0px 50px;
+    height: 30vh;
+    width: 250px;
+}
+.footer .lists .list h3{
+    color: lightgray;
+    margin-bottom: 10px;
+}
+.footer .lists .list p{
+    color: gray;
+}

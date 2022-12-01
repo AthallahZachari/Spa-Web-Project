@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Amethysta&display=swap');
+
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: "Amethysta";
+}
+body{
+    display: flex;
+    min-height: 100vh;
+}
+.container{
+    height: inherit;
+    display: flex;
+}
+.container .sidebar{
+    background-color: #292929;
+    width: 20vw;
+    min-height: inherit;
+    text-align: center;
+    flex: 2;
+}
+.container .sidebar .logo{
+    margin: 30px 10px;
+}
+.container .sidebar .list .menu-list{
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+.container .sidebar .list .menu-list:hover{
+    background-color: gray;
+}
+.container .sidebar .list .menu-list a{
+    color: lightgray;
+    text-decoration: none;
+    opacity: .6;
+}
+
+
+
+
+.container .field{
+    width: 80vw;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+.container .field .box{
+    width: 90%;
+    min-height: 50vh;
+    margin-top: 30px;
+}
+.container .field .box .content-table{
+    border-collapse: collapse;
+    width: 100%;
+    margin: 25px 0px;
+    font-size: 0.9em;
+    overflow: hidden;
+    border-radius: 10px 10px 0px 0px;
+    box-shadow: 0 0 .5rem rgba(0, 0, 0, .6);
+}
+.content-table thead tr{
+    background-color: #292929;
+    color: whitesmoke;
+    text-align: left;
+    font-weight: bold;
+}
+.content-table th,
+.content-table td{
+    padding: 12px 15px;
+}
+
+.content-table tbody tr{
+    border-bottom: 1px solid #8f8f8f;
+}
+.content-table tbody tr:nth-last-of-type(even){
+    background-color: whitesmoke;
+}
+.content-table tbody tr:last-of-type{
+    border-bottom: 2px solid #292929;
+}

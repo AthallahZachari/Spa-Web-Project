@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Amethysta&display=swap');
+
+*{
+    padding: 0px 0px;
+    margin: 0px 0px;
+    box-sizing: border-box;
+    font-family: 'Amethysta';
+    font-size: small;
+}
+h1{
+    font-size: 2rem;
+}
+.logo{
+    height: 120px;
+    width: 100%;
+    padding: 0px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.content{
+    width: 30%;
+    height: 50vh;
+    margin-top: 60px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    transform: scale(1.1);
+}
+.forms{
+    height: inherit;
+    width: 70%;
+}
+.forms .form .input{
+    width: 100%;
+    height: 30px;
+    border: 1px solid #8d8d8d;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding: 10px 10px;
+}
+.forms .form .radio{
+    margin-bottom: 10px;
+}
+
+.forms .form.sBtn{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+.forms .form .submit{
+    border: 1px solid #2c2c2c;
+    border-radius: 3px;
+    height: 40px;
+    width: 100px;
+    cursor: pointer;
+    background-color: #2c2c2c;
+    color: whitesmoke;
+    transition: all 0.4s ease;
+}
+.forms .form .submit:hover{
+    background: none;
+    color: #2c2c2c;
+}
+
+.right{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/*
+<!======== Footer ========!>
+<!======== Footer ========!>
+*/
+.footer{
+    background-color: #1f1f1f;
+    height: 45vh;
+    margin-top: 50px;
+}
+.footer .logo{
+    padding: 20px 50px;
+}
+.footer .logo h2{
+    color: lightgray;
+}
+.footer .lists{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.footer .lists .list{
+    margin: 0px 50px;
+    height: 30vh;
+    width: 250px;
+}
+.footer .lists .list h3{
+    color: lightgray;
+    margin-bottom: 10px;
+}
+.footer .lists .list p{
+    color: gray;
+}

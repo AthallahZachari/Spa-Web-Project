@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amethysta&display=swap');
+* {
+    padding: 0px 0px;
+    margin: 0px 0px;
+    font-family: 'Amethysta';
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+}
+/*
+<!======== Navigation ========!>
+<!======== Navigation ========!>
+*/
+
+.top-bar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+}
+.top-bar .logo{
+    color: #1f1f1f;
+}
+.top-bar .navs .nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.top-bar .navs .nav li{
+    list-style: none;
+    margin: 0px 15px;
+}
+.top-bar .navs .nav li a{
+    text-decoration: none;
+    color: #1f1f1f;
+    opacity: 0.8;
+}
+.top-bar .navs .nav li a:hover{
+    opacity: 1;
+}
+.top-bar .nav-left i{
+    margin: 0px 9px;
+    cursor: pointer;
+    color: gray;
+    opacity: 0.6;
+}
+.top-bar .nav-left i:hover{
+    opacity: 1;
+}
+
+/*
+<!======== Legend ========!>
+<!======== Legend ========!>
+*/
+.legend{
+    padding: 0px 90px;
+    margin-top: 40px;
+    height: 50px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.legend p{
+    color: gray;
+    font-size: small;
+}
+.legend .sort{
+    position: absolute;
+    right: 24rem;
+}
+.legend .search{
+    display: flex;
+}
+.legend .search input{
+    height: 40px;
+    padding: 0px 10px;
+    background: none;
+    border-width: 1px 0px 1px 1px;
+    border-style: solid;
+    border-color: gray;
+}
+.legend .search button{
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+    background: none;
+    border: 1px solid gray;
+}
+
+/*
+<!======== Content ========!>
+<!======== Content ========!>
+*/
+.container{
+    height: 95vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+.container .display{
+    height: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.container .display .pict{
+    height: 90vh;
+    width: 60vw;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 10px 90px;
+}
+.container .display .pict .image{
+    background-color: tomato;
+    height: 95%;
+    width: 97%;
+}
+.container .display .pict .image img{
+    height: 100%;
+    width: 100%;
+}
+.container .display .description{
+    width: 40vw;
+    min-height: 95%;
+    padding: 20px 0px;
+}
+.container .display .description .title{
+    width: 80%;
+    height: 300px;
+}
+.container .display .description .title .desc{
+    margin-top: 20px;
+}
+.title h4{
+    font-size: xx-large;
+    color: #373737;
+}
+.title .price{
+    font-size: larger;
+    font-weight: bold;
+    color: #373737;
+    margin-bottom: 20px;
+}
+.title .price.tag{
+    width: 90%;
+    font-weight: lighter;
+    font-size: medium;
+    color: gray;
+    margin-bottom: 60px;
+}
+.title .option{
+    width: 95%;
+    height: 70px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+
+.title .option .wrapper span{
+    height: 50px;
+    width: 40px;
+    cursor: pointer;
+}
+.wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFF;
+    border-radius: 2px;
+    background-color: whitesmoke;
+  }
+  .wrapper span{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: small;
+    font-weight: 600;
+    color: #373737;
+    user-select: none;
+  }
+  .wrapper span.num{
+    pointer-events: none;
+  }
+
+
+
+.title .option button{
+    height: 50px;
+    width: 130px;
+    cursor: pointer;
+    background-color: #373737; 
+    border: none;
+    border-radius: 2px;
+    color: whitesmoke;
+    transition: all 0.3s ease;
+}
+.title .option button:hover{
+    background-color: whitesmoke;
+    color: #373737;
+    border: 1px solid #373737;
+}
+
+.container .display .description .stock{
+    margin-top: 20px;
+}
+.container .display .description .etc{
+    margin-top: 50px;
+}
+.container .display .description .etc .etc-text{
+    color: gray;
+}
