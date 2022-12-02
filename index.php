@@ -13,7 +13,7 @@
 <body>
     <div class="page background">
         <div class="BG-logo">
-            <h1>Harmonie Spa</h1>
+            <h1>Harmonie Beauty</h1>
             <h2>Be kind to your body</h2>
         </div>
         <div class="links">

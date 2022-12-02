@@ -16,7 +16,7 @@ session_start();
 <body>
     <div class="title">
         <div class="logo">
-            <h1>Welcome to Harmonie Spa</h1>
+            <h1>Welcome to Harmonie Beauty</h1>
         </div>
     </div>
     <form action="regist_process.php" method="post">

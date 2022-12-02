@@ -21,7 +21,7 @@ if (empty($_SESSION['email'])) {
     <div class="container">
         <section class="page first">
             <div class="nav-container">
-                <h1 class="logo">Harmonie Spa</h1>
+                <h1 class="logo">Harmonie Beauty</h1>
                 <div class="mid">
                     <nav class="navbar">
                         <ul>

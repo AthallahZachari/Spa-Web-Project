@@ -32,7 +32,7 @@ $user_object = mysqli_fetch_object(mysqli_query($connect, "SELECT * FROM user WH
 <body>
     <div class="top-bar">
         <div class="logo">
-            <h1>Harmonie Spa</h1>
+            <h1>Harmonie Beauty</h1>
         </div>
         <div class="navs">
             <ul class="nav">

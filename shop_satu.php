@@ -29,7 +29,7 @@ $query_result = mysqli_query($connect, $query);
 <body>
     <div class="top-bar">
         <div class="logo">
-            <h1>Harmonie Spa</h1>
+            <h1>Harmonie Beauty</h1>
         </div>
         <div class="navs">
             <ul class="nav">
